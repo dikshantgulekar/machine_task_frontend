@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>ADD CATEGORY</h1>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="first-name">Category Name: </label><br/>
+    <input id="first-name" type="text" formControlName="categoryName">
+
+    <div *ngIf="profileForm.controls['categoryName'].touched && !profileForm.controls['categoryName'].valid">
+        <span *ngIf="profileForm.controls['categoryName'].hasError('required')">Category Name is Required</span>
+    </div>
+    <br/>
+    
+    
+    <button type="submit"  [disabled]="!profileForm.valid">ADD CATEGORY</button>
+    
+</form>
+
+<p>FORM STATUS : {{profileForm.status}}</p>
+</div>

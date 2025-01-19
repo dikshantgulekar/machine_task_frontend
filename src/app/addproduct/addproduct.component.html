@@ -1,0 +1,48 @@
+
+<div class="container">
+    <h1>ADD PRODUCT</h1>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="category">Category: </label><br />
+    <select id="category" formControlName="categoryId">
+        <option value="" disabled selected>Select a category</option>
+        <option *ngFor="let ans of userdata" [value]="ans.id">{{ ans.categoryName }}</option>
+    </select>
+
+    <div *ngIf="profileForm.controls['categoryId'].touched && !profileForm.controls['categoryId'].valid">
+        <span *ngIf="profileForm.controls['categoryId'].hasError('required')">Category is required</span>
+    </div>
+    <br />
+  
+    <label for="product-name">Product Name: </label><br/>
+    <input id="product-name" type="text" formControlName="productName">
+
+    <div *ngIf="profileForm.controls['productName'].touched && !profileForm.controls['productName'].valid">
+        <span *ngIf="profileForm.controls['productName'].hasError('required')">productName is Required</span>
+    </div>
+    <br/>
+
+    <label for="product-price">Product Price: </label><br/>
+    <input id="product-price" type="text" formControlName="productPrice">
+
+    <div *ngIf="profileForm.controls['productPrice'].touched && !profileForm.controls['productPrice'].valid">
+        <span *ngIf="profileForm.controls['productPrice'].hasError('required')">productPrice is Required</span>
+    </div>
+    <br/>
+
+    <label for="product-name">Product DESCRIPTION: </label><br/>
+    <input id="product-name" type="text" formControlName="productDesc">
+
+    <div *ngIf="profileForm.controls['productDesc'].touched && !profileForm.controls['productDesc'].valid">
+        <span *ngIf="profileForm.controls['productDesc'].hasError('required')">product description is Required</span>
+    </div>
+    <br/>
+
+
+
+
+    <button type="submit" [disabled]="!profileForm.valid">ADD PRODUCT</button>
+    
+</form>
+
+<p>FORM STATUS : {{profileForm.status}}</p>
+</div>

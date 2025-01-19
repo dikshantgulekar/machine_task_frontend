@@ -1,0 +1,36 @@
+<div class="container py-5">
+    <h1 class="text-center mb-4 display-4">CATEGORIES</h1>
+
+    <table class="table table-striped table-hover text-center shadow-lg rounded">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>ID</th>
+                <th>CATEGORY</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of categoryData">
+                <td>{{ record.id }}</td>
+                <td>{{ record.categoryName }}</td>
+                <td>
+                    <a
+                        class="btn btn-edit btn-sm"
+                        routerLink="/edit-category/{{ record.id }}"
+                    >
+                        EDIT
+                    </a>
+                </td>
+                <td>
+                    <button
+                        class="btn btn-delete btn-sm"
+                        (click)="deleteData(record.id, $event)"
+                    >
+                        DELETE
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
