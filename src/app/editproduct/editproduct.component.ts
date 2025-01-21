@@ -27,7 +27,7 @@ export class EditproductComponent implements OnInit {
   ngOnInit() {
     const productId = this.act.snapshot.params['proid']; 
 
-    this.http.get(`http://localhost:8000/show-product/${productId}`).subscribe(
+    this.http.get(`http://localhost:8000/products/${productId}`).subscribe(
       (response: any) => {
         if (response && response.data) {
           this.showProductData = response.data;
@@ -62,7 +62,7 @@ export class EditproductComponent implements OnInit {
         categoryId: this.categoryId, 
       };
 
-      this.http.put(`http://localhost:8000/update-product/${productId}`, updatePayload).subscribe(
+      this.http.put(`http://localhost:8000/products/${productId}`, updatePayload).subscribe(
         (response: any) => {
           if (response && response.message) {
             this.message = response.message; 

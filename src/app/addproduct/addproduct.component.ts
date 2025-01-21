@@ -23,7 +23,7 @@ export class AddproductComponent {
     onSubmit(){
       console.log(this.profileForm.value);
   
-      this.http.post("http://localhost:8000/add-product", this.profileForm.value)
+      this.http.post("http://localhost:8000/products", this.profileForm.value)
       .subscribe((response:any)=>{
         console.log(response);
         this.message = response['message']
@@ -34,7 +34,7 @@ export class AddproductComponent {
     public userdata : any = [];
 
     ngOnInit(){
-      this.http.get('http://localhost:8000/show-category')
+      this.http.get('http://localhost:8000/products')
       .subscribe((response:any)=>{
         console.log(response);
         this.userdata = response.data;

@@ -22,7 +22,7 @@ export class EditcategoryComponent {
 
   ngOnInit() {
     const url = this.act.snapshot.params;
-    this.http.get(`http://localhost:8000/show-category/${url['catid']}`).subscribe((response: any) => {
+    this.http.get(`http://localhost:8000/categories/${url['catid']}`).subscribe((response: any) => {
       console.log(response);
       this.showCategoryData = response.data;
       
@@ -38,7 +38,7 @@ export class EditcategoryComponent {
   onSubmit() {
     console.log(this.profileForm.value);
     const urlData = this.act.snapshot.params;
-    this.http.put(`http://localhost:8000/update-category/${urlData['catid']}`, this.profileForm.value).subscribe((response: any) => {
+    this.http.put(`http://localhost:8000/categories/${urlData['catid']}`, this.profileForm.value).subscribe((response: any) => {
       console.log(response);
       this.message = response['message'];
       this.router.navigate(['/show-category']);

@@ -23,7 +23,7 @@ export class AddcategoryComponent {
       onSubmit(){
         console.log(this.profileForm.value);
     
-        this.http.post("http://localhost:8000/add-category", this.profileForm.value)
+        this.http.post("http://localhost:8000/categories", this.profileForm.value)
         .subscribe((response:any)=>{
           console.log(response);
           this.message = response['message']

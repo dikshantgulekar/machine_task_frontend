@@ -18,7 +18,7 @@ export class ShowproductComponent {
   public productData : any[] = []
 
   ngOnInit(){
-    this.http.get('http://localhost:8000/show-product')
+    this.http.get('http://localhost:8000/products')
     .subscribe((response:any)=>{
       console.log(response)
       this.productData = response.data;
@@ -27,7 +27,7 @@ export class ShowproductComponent {
 
   deleteData(proid:any, ev:any ){
     console.log(proid)
-    this.http.delete('http://localhost:9000/delete-product/'+proid)
+    this.http.delete('http://localhost:9000/products/'+proid)
     .subscribe((response:any)=>{
       console.log(response.message)
       ev.target.parentNode.parentNode.remove();

@@ -18,7 +18,7 @@ export class ShowcategoryComponent {
   public categoryData : any = [];
 
   ngOnInit(){
-    this.http.get('http://localhost:8000/show-category')
+    this.http.get('http://localhost:8000/categories')
     .subscribe((response:any)=>{
       console.log(response);
       this.categoryData = response.data;
@@ -27,7 +27,7 @@ export class ShowcategoryComponent {
 
   deleteData(catid:any, ev:any ){
     console.log(catid)
-    this.http.delete('http://localhost:9000/delete-category/'+catid)
+    this.http.delete('http://localhost:9000/categories/'+catid)
     .subscribe((response:any)=>{
       console.log(response.message)
       ev.target.parentNode.parentNode.remove();
